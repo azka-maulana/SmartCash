@@ -78,6 +78,8 @@ Bob berperan pada tahap pengembangan, sedangkan Langflow digunakan pada saat sis
 ## Hasil
 
 Smart Cash menghasilkan aplikasi kas bersama dengan dua role pengguna dan AI Assistant yang membantu pengguna mengakses serta memahami informasi keuangan secara lebih mudah dan transparan.
+<img width="1308" height="718" alt="4  Output" src="https://github.com/user-attachments/assets/75ded3b2-534d-4240-930e-82cbca7082dc" />
+
 
 ## Status Project
 
