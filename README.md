@@ -71,6 +71,8 @@ IBM Bob digunakan dalam proses pengembangan Smart Cash untuk membantu membangun,
 
 Bob berperan pada tahap pengembangan, sedangkan Langflow digunakan pada saat sistem AI dijalankan.
 
+<img width="1365" height="766" alt="3  Bob integration Backend" src="https://github.com/user-attachments/assets/53986602-10e0-4a67-80b9-67ba9590449e" />
+
 ## Cara Kerja
 
 `Login → Admin/User → Dashboard → Kelola atau Pantau Data → Data Tersimpan di Database → Pertanyaan ke Smart Cash AI → Langflow Memproses Knowledge dan Data yang Relevan → Jawaban AI`
