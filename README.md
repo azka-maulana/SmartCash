@@ -67,7 +67,7 @@ Knowledge yang digunakan berisi informasi dan aturan Smart Cash, sedangkan data 
 
 ## Peran IBM Bob
 
-IBM Bob digunakan dalam proses pengembangan Smart Cash untuk membantu membangun, memperbaiki, dan menguji source code serta integrasi antara frontend, backend, database, dan sistem AI.
+IBM Bob digunakan dalam proses pengembangan Smart Cash untuk membantu membangun, memperbaiki, dan menguji source code serta integrasi antara frontend, backend, database, dan sistem AI. Salah satunya menyambungkan MCP langflow ke frontend dengan cara membuat backend untuk integrasi tersebut.
 
 Bob berperan pada tahap pengembangan, sedangkan Langflow digunakan pada saat sistem AI dijalankan.
 
