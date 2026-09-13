@@ -10,6 +10,9 @@ Aplikasi ini cocok digunakan untuk:
 - Kas kepanitiaan
 - Kegiatan bersama lainnya
 
+<img width="1310" height="709" alt="Screenshot 2026-09-13 122435" src="https://github.com/user-attachments/assets/da23fc13-e7b2-4d3d-b4af-d6c2c9a247dd" />
+
+
 ## Fitur
 
 ### Dashboard
