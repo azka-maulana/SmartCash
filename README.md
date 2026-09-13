@@ -1,87 +1,85 @@
 # Smart Cash
 
-Smart Cash adalah aplikasi sederhana untuk membantu mengelola uang kas bersama secara lebih rapi, transparan, dan mudah dipantau.
+Smart Cash adalah aplikasi pengelolaan uang kas bersama yang membantu kelompok mencatat, memantau, dan memahami kondisi keuangan secara lebih rapi dan transparan.
 
-Aplikasi ini cocok digunakan untuk:
-
+Smart Cash dapat digunakan untuk:
 - Kas kelas
 - Kas organisasi
 - Kas komunitas
 - Kas kepanitiaan
 - Kegiatan bersama lainnya
 
-## Fitur
+## Tujuan
+
+Smart Cash dibuat untuk mempermudah pengelolaan kas yang sebelumnya dapat dilakukan secara manual dan sulit dipantau. Dengan menggabungkan pencatatan transaksi, pengelolaan iuran, informasi anggota, dan bantuan AI, kondisi keuangan kelompok dapat dilihat dalam satu aplikasi.
+
+## Role Pengguna
+
+### Admin
+Admin dapat mengelola data kas, transaksi, iuran, dan anggota dalam kelompok.
+
+### User
+User dapat melihat informasi kas, transaksi, iuran, dan data kelompok sesuai hak aksesnya.
+
+## Fitur Utama
 
 ### Dashboard
-
-Lihat kondisi kas secara ringkas dalam satu halaman:
-
+Menampilkan ringkasan kondisi keuangan seperti:
 - Saldo saat ini
 - Pemasukan
 - Pengeluaran
-- Status iuran anggota
-- Transaksi terbaru
+- Status iuran
+- Aktivitas transaksi terbaru
 
 ### Transaksi
-
-Catat dan pantau uang yang masuk dan keluar dengan lebih teratur.
-
-Pengguna dapat melihat informasi seperti:
-
-- Jumlah transaksi
-- Kategori transaksi
-- Tanggal
-- Keterangan
-- Nominal
+Mencatat pemasukan dan pengeluaran kas secara terstruktur, termasuk nominal, kategori, tanggal, dan keterangan transaksi.
 
 ### Iuran Anggota
-
-Pantau status pembayaran anggota secara lebih transparan.
-
-Status iuran dapat membantu melihat siapa yang:
-
+Membantu Admin memantau pembayaran iuran dengan status:
 - Sudah membayar
 - Membayar sebagian
 - Belum membayar
 
 ### Anggota
-
-Lihat daftar anggota yang terdaftar dalam suatu kelompok atau kas.
+Menampilkan dan mengelola anggota yang terdaftar dalam kelompok.
 
 ### Smart Cash AI
+AI Assistant membantu pengguna mendapatkan informasi dan penjelasan mengenai Smart Cash melalui pertanyaan menggunakan bahasa sehari-hari.
 
-Smart Cash juga memiliki AI Assistant yang dapat membantu menjawab pertanyaan seputar kondisi kas.
+Contoh:
+- "Berapa saldo kas saat ini?"
+- "Siapa yang belum membayar iuran?"
+- "Berapa pengeluaran bulan ini?"
+- "Apa itu contribution?"
 
-Contohnya:
+## Penggunaan IBM Langflow
 
-> Berapa saldo kas saat ini?
+IBM Langflow digunakan sebagai bagian dari sistem AI Smart Cash untuk mengatur alur pemrosesan pertanyaan pengguna.
 
-> Siapa yang belum membayar iuran?
+Pada flow yang digunakan, Langflow menerima pertanyaan melalui Chat Input, mencari informasi yang relevan pada knowledge base menggunakan Supabase Vector Store, memproses hasilnya melalui Parser dan Prompt Template, kemudian meneruskannya ke Language Model untuk menghasilkan jawaban yang ditampilkan melalui Chat Output.
 
-> Berapa pengeluaran bulan ini?
+Alur utamanya:
 
-> Apa pengeluaran terbesar?
+`Chat Input → Knowledge Search → Parser → Prompt Template → Language Model → Chat Output`
+<img width="1309" height="716" alt="Screenshot 2026-09-13 124720" src="https://github.com/user-attachments/assets/98956769-ac9a-431e-a3bf-6e2fbbdc8486" />
 
-## Transparan dan Terorganisir
+Knowledge yang digunakan berisi informasi dan aturan Smart Cash, sedangkan data operasional seperti transaksi, iuran, anggota, dan kondisi kas berasal dari database aplikasi melalui integrasi yang disediakan sistem.
 
-Smart Cash dibuat dengan tujuan sederhana:
+## Peran IBM Bob
 
-**membuat pengelolaan uang kas lebih mudah dipahami oleh semua anggota.**
+IBM Bob digunakan dalam proses pengembangan Smart Cash untuk membantu membangun, memperbaiki, dan menguji source code serta integrasi antara frontend, backend, database, dan sistem AI.
 
-Dengan informasi transaksi dan iuran yang tersusun dengan jelas, anggota dapat mengetahui bagaimana uang bersama dikelola.
+Bob berperan pada tahap pengembangan, sedangkan Langflow digunakan pada saat sistem AI dijalankan.
 
-## Tampilan
+## Cara Kerja
 
-Smart Cash menggunakan antarmuka modern yang dirancang agar informasi keuangan dapat dibaca dengan cepat tanpa terasa rumit atau penuh.
+`Login → Admin/User → Dashboard → Kelola atau Pantau Data → Data Tersimpan di Database → Pertanyaan ke Smart Cash AI → Langflow Memproses Knowledge dan Data yang Relevan → Jawaban AI`
+
+## Hasil
+
+Smart Cash menghasilkan aplikasi kas bersama dengan dua role pengguna dan AI Assistant yang membantu pengguna mengakses serta memahami informasi keuangan secara lebih mudah dan transparan.
 
 ## Status Project
 
 ```text
 Development / Demo
-```
-
-Project ini masih dalam tahap pengembangan dan beberapa fitur dapat terus disempurnakan.
-
-## License
-
-Belum ada lisensi publik yang ditetapkan untuk project ini.
