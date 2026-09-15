@@ -5,8 +5,9 @@
   "description": "Smart Cash AI Gateway — secure Node.js/Express proxy to Langflow",
   "type": "commonjs",
   "engines": {
-    "node": ">=18.0.0"
-  },
+  "node": "24.x"
+ },
+ 
   "scripts": {
     "dev": "node --watch src/server.js",
     "start": "node src/server.js",
