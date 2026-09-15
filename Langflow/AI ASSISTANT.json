@@ -3,10 +3,11 @@
     "edges": [
       {
         "animated": false,
+        "className": "",
         "data": {
           "sourceHandle": {
             "dataType": "LanguageModelComponent",
-            "id": "LanguageModelComponent-DKx8z",
+            "id": "LanguageModelComponent-uo5vP",
             "name": "text_output",
             "output_types": [
               "Message"
@@ -14,7 +15,7 @@
           },
           "targetHandle": {
             "fieldName": "input_value",
-            "id": "ChatOutput-TDB3k",
+            "id": "ChatOutput-QYfwJ",
             "inputTypes": [
               "Data",
               "JSON",
@@ -25,19 +26,20 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-LanguageModelComponent-DKx8z{œdataTypeœ:œLanguageModelComponentœ,œidœ:œLanguageModelComponent-DKx8zœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-TDB3k{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-TDB3kœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__LanguageModelComponent-uo5vP{œdataTypeœ:œLanguageModelComponentœ,œidœ:œLanguageModelComponent-uo5vPœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-QYfwJ{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-QYfwJœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œotherœ}",
         "selected": false,
-        "source": "LanguageModelComponent-DKx8z",
-        "sourceHandle": "{œdataTypeœ:œLanguageModelComponentœ,œidœ:œLanguageModelComponent-DKx8zœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}",
-        "target": "ChatOutput-TDB3k",
-        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-TDB3kœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œotherœ}"
+        "source": "LanguageModelComponent-uo5vP",
+        "sourceHandle": "{œdataTypeœ:œLanguageModelComponentœ,œidœ:œLanguageModelComponent-uo5vPœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "ChatOutput-QYfwJ",
+        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-QYfwJœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œotherœ}"
       },
       {
         "animated": false,
+        "className": "",
         "data": {
           "sourceHandle": {
             "dataType": "Prompt Template",
-            "id": "Prompt Template-L5joh",
+            "id": "Prompt Template-AGsZX",
             "name": "prompt",
             "output_types": [
               "Message"
@@ -45,26 +47,27 @@
           },
           "targetHandle": {
             "fieldName": "input_value",
-            "id": "LanguageModelComponent-DKx8z",
+            "id": "LanguageModelComponent-uo5vP",
             "inputTypes": [
               "Message"
             ],
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt Template-L5joh{œdataTypeœ:œPrompt Templateœ,œidœ:œPrompt Template-L5johœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-LanguageModelComponent-DKx8z{œfieldNameœ:œinput_valueœ,œidœ:œLanguageModelComponent-DKx8zœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__Prompt Template-AGsZX{œdataTypeœ:œPrompt Templateœ,œidœ:œPrompt Template-AGsZXœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-LanguageModelComponent-uo5vP{œfieldNameœ:œinput_valueœ,œidœ:œLanguageModelComponent-uo5vPœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "selected": false,
-        "source": "Prompt Template-L5joh",
-        "sourceHandle": "{œdataTypeœ:œPrompt Templateœ,œidœ:œPrompt Template-L5johœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}",
-        "target": "LanguageModelComponent-DKx8z",
-        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œLanguageModelComponent-DKx8zœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+        "source": "Prompt Template-AGsZX",
+        "sourceHandle": "{œdataTypeœ:œPrompt Templateœ,œidœ:œPrompt Template-AGsZXœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "LanguageModelComponent-uo5vP",
+        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œLanguageModelComponent-uo5vPœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
       },
       {
         "animated": false,
+        "className": "",
         "data": {
           "sourceHandle": {
             "dataType": "Google Generative AI Embeddings",
-            "id": "Google Generative AI Embeddings-j7Rdb",
+            "id": "Google Generative AI Embeddings-lgaQ8",
             "name": "embeddings",
             "output_types": [
               "Embeddings"
@@ -72,26 +75,27 @@
           },
           "targetHandle": {
             "fieldName": "embedding",
-            "id": "ext:supabase:SupabaseVectorStoreComponent@official-cF14R",
+            "id": "ext:supabase:SupabaseVectorStoreComponent@official-r9pvc",
             "inputTypes": [
               "Embeddings"
             ],
             "type": "other"
           }
         },
-        "id": "reactflow__edge-Google Generative AI Embeddings-j7Rdb{œdataTypeœ:œGoogle Generative AI Embeddingsœ,œidœ:œGoogle Generative AI Embeddings-j7Rdbœ,œnameœ:œembeddingsœ,œoutput_typesœ:[œEmbeddingsœ]}-ext:supabase:SupabaseVectorStoreComponent@official-cF14R{œfieldNameœ:œembeddingœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-cF14Rœ,œinputTypesœ:[œEmbeddingsœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__Google Generative AI Embeddings-lgaQ8{œdataTypeœ:œGoogle Generative AI Embeddingsœ,œidœ:œGoogle Generative AI Embeddings-lgaQ8œ,œnameœ:œembeddingsœ,œoutput_typesœ:[œEmbeddingsœ]}-ext:supabase:SupabaseVectorStoreComponent@official-r9pvc{œfieldNameœ:œembeddingœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-r9pvcœ,œinputTypesœ:[œEmbeddingsœ],œtypeœ:œotherœ}",
         "selected": false,
-        "source": "Google Generative AI Embeddings-j7Rdb",
-        "sourceHandle": "{œdataTypeœ:œGoogle Generative AI Embeddingsœ,œidœ:œGoogle Generative AI Embeddings-j7Rdbœ,œnameœ:œembeddingsœ,œoutput_typesœ:[œEmbeddingsœ]}",
-        "target": "ext:supabase:SupabaseVectorStoreComponent@official-cF14R",
-        "targetHandle": "{œfieldNameœ:œembeddingœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-cF14Rœ,œinputTypesœ:[œEmbeddingsœ],œtypeœ:œotherœ}"
+        "source": "Google Generative AI Embeddings-lgaQ8",
+        "sourceHandle": "{œdataTypeœ:œGoogle Generative AI Embeddingsœ,œidœ:œGoogle Generative AI Embeddings-lgaQ8œ,œnameœ:œembeddingsœ,œoutput_typesœ:[œEmbeddingsœ]}",
+        "target": "ext:supabase:SupabaseVectorStoreComponent@official-r9pvc",
+        "targetHandle": "{œfieldNameœ:œembeddingœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-r9pvcœ,œinputTypesœ:[œEmbeddingsœ],œtypeœ:œotherœ}"
       },
       {
         "animated": false,
+        "className": "",
         "data": {
           "sourceHandle": {
             "dataType": "SplitText",
-            "id": "SplitText-eNBcG",
+            "id": "SplitText-laVR2",
             "name": "dataframe",
             "output_types": [
               "Table"
@@ -99,7 +103,7 @@
           },
           "targetHandle": {
             "fieldName": "ingest_data",
-            "id": "ext:supabase:SupabaseVectorStoreComponent@official-cF14R",
+            "id": "ext:supabase:SupabaseVectorStoreComponent@official-r9pvc",
             "inputTypes": [
               "Data",
               "DataFrame",
@@ -108,19 +112,20 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-SplitText-eNBcG{œdataTypeœ:œSplitTextœ,œidœ:œSplitText-eNBcGœ,œnameœ:œdataframeœ,œoutput_typesœ:[œTableœ]}-ext:supabase:SupabaseVectorStoreComponent@official-cF14R{œfieldNameœ:œingest_dataœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-cF14Rœ,œinputTypesœ:[œDataœ,œDataFrameœ,œTableœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__SplitText-laVR2{œdataTypeœ:œSplitTextœ,œidœ:œSplitText-laVR2œ,œnameœ:œdataframeœ,œoutput_typesœ:[œTableœ]}-ext:supabase:SupabaseVectorStoreComponent@official-r9pvc{œfieldNameœ:œingest_dataœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-r9pvcœ,œinputTypesœ:[œDataœ,œDataFrameœ,œTableœ],œtypeœ:œotherœ}",
         "selected": false,
-        "source": "SplitText-eNBcG",
-        "sourceHandle": "{œdataTypeœ:œSplitTextœ,œidœ:œSplitText-eNBcGœ,œnameœ:œdataframeœ,œoutput_typesœ:[œTableœ]}",
-        "target": "ext:supabase:SupabaseVectorStoreComponent@official-cF14R",
-        "targetHandle": "{œfieldNameœ:œingest_dataœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-cF14Rœ,œinputTypesœ:[œDataœ,œDataFrameœ,œTableœ],œtypeœ:œotherœ}"
+        "source": "SplitText-laVR2",
+        "sourceHandle": "{œdataTypeœ:œSplitTextœ,œidœ:œSplitText-laVR2œ,œnameœ:œdataframeœ,œoutput_typesœ:[œTableœ]}",
+        "target": "ext:supabase:SupabaseVectorStoreComponent@official-r9pvc",
+        "targetHandle": "{œfieldNameœ:œingest_dataœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-r9pvcœ,œinputTypesœ:[œDataœ,œDataFrameœ,œTableœ],œtypeœ:œotherœ}"
       },
       {
         "animated": false,
+        "className": "",
         "data": {
           "sourceHandle": {
             "dataType": "EmbeddingModel",
-            "id": "EmbeddingModel-j0VWn",
+            "id": "EmbeddingModel-iT4TW",
             "name": "embeddings",
             "output_types": [
               "Embeddings"
@@ -128,26 +133,27 @@
           },
           "targetHandle": {
             "fieldName": "embedding",
-            "id": "ext:supabase:SupabaseVectorStoreComponent@official-ZdeUB",
+            "id": "ext:supabase:SupabaseVectorStoreComponent@official-THnP1",
             "inputTypes": [
               "Embeddings"
             ],
             "type": "other"
           }
         },
-        "id": "reactflow__edge-EmbeddingModel-j0VWn{œdataTypeœ:œEmbeddingModelœ,œidœ:œEmbeddingModel-j0VWnœ,œnameœ:œembeddingsœ,œoutput_typesœ:[œEmbeddingsœ]}-ext:supabase:SupabaseVectorStoreComponent@official-ZdeUB{œfieldNameœ:œembeddingœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-ZdeUBœ,œinputTypesœ:[œEmbeddingsœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__EmbeddingModel-iT4TW{œdataTypeœ:œEmbeddingModelœ,œidœ:œEmbeddingModel-iT4TWœ,œnameœ:œembeddingsœ,œoutput_typesœ:[œEmbeddingsœ]}-ext:supabase:SupabaseVectorStoreComponent@official-THnP1{œfieldNameœ:œembeddingœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-THnP1œ,œinputTypesœ:[œEmbeddingsœ],œtypeœ:œotherœ}",
         "selected": false,
-        "source": "EmbeddingModel-j0VWn",
-        "sourceHandle": "{œdataTypeœ:œEmbeddingModelœ,œidœ:œEmbeddingModel-j0VWnœ,œnameœ:œembeddingsœ,œoutput_typesœ:[œEmbeddingsœ]}",
-        "target": "ext:supabase:SupabaseVectorStoreComponent@official-ZdeUB",
-        "targetHandle": "{œfieldNameœ:œembeddingœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-ZdeUBœ,œinputTypesœ:[œEmbeddingsœ],œtypeœ:œotherœ}"
+        "source": "EmbeddingModel-iT4TW",
+        "sourceHandle": "{œdataTypeœ:œEmbeddingModelœ,œidœ:œEmbeddingModel-iT4TWœ,œnameœ:œembeddingsœ,œoutput_typesœ:[œEmbeddingsœ]}",
+        "target": "ext:supabase:SupabaseVectorStoreComponent@official-THnP1",
+        "targetHandle": "{œfieldNameœ:œembeddingœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-THnP1œ,œinputTypesœ:[œEmbeddingsœ],œtypeœ:œotherœ}"
       },
       {
         "animated": false,
+        "className": "",
         "data": {
           "sourceHandle": {
             "dataType": "ext:supabase:SupabaseVectorStoreComponent@official",
-            "id": "ext:supabase:SupabaseVectorStoreComponent@official-ZdeUB",
+            "id": "ext:supabase:SupabaseVectorStoreComponent@official-THnP1",
             "name": "search_results",
             "output_types": [
               "JSON"
@@ -155,7 +161,7 @@
           },
           "targetHandle": {
             "fieldName": "input_data",
-            "id": "ParserComponent-9z8HZ",
+            "id": "ParserComponent-aa0Fd",
             "inputTypes": [
               "DataFrame",
               "Table",
@@ -165,19 +171,20 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-ext:supabase:SupabaseVectorStoreComponent@official-ZdeUB{œdataTypeœ:œext:supabase:SupabaseVectorStoreComponent@officialœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-ZdeUBœ,œnameœ:œsearch_resultsœ,œoutput_typesœ:[œJSONœ]}-ParserComponent-9z8HZ{œfieldNameœ:œinput_dataœ,œidœ:œParserComponent-9z8HZœ,œinputTypesœ:[œDataFrameœ,œTableœ,œDataœ,œJSONœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__ext:supabase:SupabaseVectorStoreComponent@official-THnP1{œdataTypeœ:œext:supabase:SupabaseVectorStoreComponent@officialœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-THnP1œ,œnameœ:œsearch_resultsœ,œoutput_typesœ:[œJSONœ]}-ParserComponent-aa0Fd{œfieldNameœ:œinput_dataœ,œidœ:œParserComponent-aa0Fdœ,œinputTypesœ:[œDataFrameœ,œTableœ,œDataœ,œJSONœ],œtypeœ:œotherœ}",
         "selected": false,
-        "source": "ext:supabase:SupabaseVectorStoreComponent@official-ZdeUB",
-        "sourceHandle": "{œdataTypeœ:œext:supabase:SupabaseVectorStoreComponent@officialœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-ZdeUBœ,œnameœ:œsearch_resultsœ,œoutput_typesœ:[œJSONœ]}",
-        "target": "ParserComponent-9z8HZ",
-        "targetHandle": "{œfieldNameœ:œinput_dataœ,œidœ:œParserComponent-9z8HZœ,œinputTypesœ:[œDataFrameœ,œTableœ,œDataœ,œJSONœ],œtypeœ:œotherœ}"
+        "source": "ext:supabase:SupabaseVectorStoreComponent@official-THnP1",
+        "sourceHandle": "{œdataTypeœ:œext:supabase:SupabaseVectorStoreComponent@officialœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-THnP1œ,œnameœ:œsearch_resultsœ,œoutput_typesœ:[œJSONœ]}",
+        "target": "ParserComponent-aa0Fd",
+        "targetHandle": "{œfieldNameœ:œinput_dataœ,œidœ:œParserComponent-aa0Fdœ,œinputTypesœ:[œDataFrameœ,œTableœ,œDataœ,œJSONœ],œtypeœ:œotherœ}"
       },
       {
         "animated": false,
+        "className": "",
         "data": {
           "sourceHandle": {
             "dataType": "ChatInput",
-            "id": "ChatInput-cYIy4",
+            "id": "ChatInput-0VcxV",
             "name": "message",
             "output_types": [
               "Message"
@@ -185,26 +192,27 @@
           },
           "targetHandle": {
             "fieldName": "search_query",
-            "id": "ext:supabase:SupabaseVectorStoreComponent@official-ZdeUB",
+            "id": "ext:supabase:SupabaseVectorStoreComponent@official-THnP1",
             "inputTypes": [
               "Message"
             ],
             "type": "query"
           }
         },
-        "id": "reactflow__edge-ChatInput-cYIy4{œdataTypeœ:œChatInputœ,œidœ:œChatInput-cYIy4œ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-ext:supabase:SupabaseVectorStoreComponent@official-ZdeUB{œfieldNameœ:œsearch_queryœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-ZdeUBœ,œinputTypesœ:[œMessageœ],œtypeœ:œqueryœ}",
+        "id": "xy-edge__ChatInput-0VcxV{œdataTypeœ:œChatInputœ,œidœ:œChatInput-0VcxVœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-ext:supabase:SupabaseVectorStoreComponent@official-THnP1{œfieldNameœ:œsearch_queryœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-THnP1œ,œinputTypesœ:[œMessageœ],œtypeœ:œqueryœ}",
         "selected": false,
-        "source": "ChatInput-cYIy4",
-        "sourceHandle": "{œdataTypeœ:œChatInputœ,œidœ:œChatInput-cYIy4œ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}",
-        "target": "ext:supabase:SupabaseVectorStoreComponent@official-ZdeUB",
-        "targetHandle": "{œfieldNameœ:œsearch_queryœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-ZdeUBœ,œinputTypesœ:[œMessageœ],œtypeœ:œqueryœ}"
+        "source": "ChatInput-0VcxV",
+        "sourceHandle": "{œdataTypeœ:œChatInputœ,œidœ:œChatInput-0VcxVœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "ext:supabase:SupabaseVectorStoreComponent@official-THnP1",
+        "targetHandle": "{œfieldNameœ:œsearch_queryœ,œidœ:œext:supabase:SupabaseVectorStoreComponent@official-THnP1œ,œinputTypesœ:[œMessageœ],œtypeœ:œqueryœ}"
       },
       {
         "animated": false,
+        "className": "",
         "data": {
           "sourceHandle": {
             "dataType": "File",
-            "id": "File-SlqhK",
+            "id": "File-nzwjX",
             "name": "dataframe",
             "output_types": [
               "Table"
@@ -212,7 +220,7 @@
           },
           "targetHandle": {
             "fieldName": "data_inputs",
-            "id": "SplitText-eNBcG",
+            "id": "SplitText-laVR2",
             "inputTypes": [
               "Data",
               "JSON",
@@ -223,19 +231,20 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-File-SlqhK{œdataTypeœ:œFileœ,œidœ:œFile-SlqhKœ,œnameœ:œdataframeœ,œoutput_typesœ:[œTableœ]}-SplitText-eNBcG{œfieldNameœ:œdata_inputsœ,œidœ:œSplitText-eNBcGœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œotherœ}",
+        "id": "xy-edge__File-nzwjX{œdataTypeœ:œFileœ,œidœ:œFile-nzwjXœ,œnameœ:œdataframeœ,œoutput_typesœ:[œTableœ]}-SplitText-laVR2{œfieldNameœ:œdata_inputsœ,œidœ:œSplitText-laVR2œ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œotherœ}",
         "selected": false,
-        "source": "File-SlqhK",
-        "sourceHandle": "{œdataTypeœ:œFileœ,œidœ:œFile-SlqhKœ,œnameœ:œdataframeœ,œoutput_typesœ:[œTableœ]}",
-        "target": "SplitText-eNBcG",
-        "targetHandle": "{œfieldNameœ:œdata_inputsœ,œidœ:œSplitText-eNBcGœ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œotherœ}"
+        "source": "File-nzwjX",
+        "sourceHandle": "{œdataTypeœ:œFileœ,œidœ:œFile-nzwjXœ,œnameœ:œdataframeœ,œoutput_typesœ:[œTableœ]}",
+        "target": "SplitText-laVR2",
+        "targetHandle": "{œfieldNameœ:œdata_inputsœ,œidœ:œSplitText-laVR2œ,œinputTypesœ:[œDataœ,œJSONœ,œDataFrameœ,œTableœ,œMessageœ],œtypeœ:œotherœ}"
       },
       {
         "animated": false,
+        "className": "",
         "data": {
           "sourceHandle": {
             "dataType": "ParserComponent",
-            "id": "ParserComponent-9z8HZ",
+            "id": "ParserComponent-aa0Fd",
             "name": "parsed_text",
             "output_types": [
               "Message"
@@ -243,26 +252,27 @@
           },
           "targetHandle": {
             "fieldName": "context",
-            "id": "Prompt Template-L5joh",
+            "id": "Prompt Template-AGsZX",
             "inputTypes": [
               "Message"
             ],
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ParserComponent-9z8HZ{œdataTypeœ:œParserComponentœ,œidœ:œParserComponent-9z8HZœ,œnameœ:œparsed_textœ,œoutput_typesœ:[œMessageœ]}-Prompt Template-L5joh{œfieldNameœ:œcontextœ,œidœ:œPrompt Template-L5johœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__ParserComponent-aa0Fd{œdataTypeœ:œParserComponentœ,œidœ:œParserComponent-aa0Fdœ,œnameœ:œparsed_textœ,œoutput_typesœ:[œMessageœ]}-Prompt Template-AGsZX{œfieldNameœ:œcontextœ,œidœ:œPrompt Template-AGsZXœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "selected": false,
-        "source": "ParserComponent-9z8HZ",
-        "sourceHandle": "{œdataTypeœ:œParserComponentœ,œidœ:œParserComponent-9z8HZœ,œnameœ:œparsed_textœ,œoutput_typesœ:[œMessageœ]}",
-        "target": "Prompt Template-L5joh",
-        "targetHandle": "{œfieldNameœ:œcontextœ,œidœ:œPrompt Template-L5johœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+        "source": "ParserComponent-aa0Fd",
+        "sourceHandle": "{œdataTypeœ:œParserComponentœ,œidœ:œParserComponent-aa0Fdœ,œnameœ:œparsed_textœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "Prompt Template-AGsZX",
+        "targetHandle": "{œfieldNameœ:œcontextœ,œidœ:œPrompt Template-AGsZXœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
       },
       {
         "animated": false,
+        "className": "",
         "data": {
           "sourceHandle": {
             "dataType": "ChatInput",
-            "id": "ChatInput-cYIy4",
+            "id": "ChatInput-0VcxV",
             "name": "message",
             "output_types": [
               "Message"
@@ -270,19 +280,19 @@
           },
           "targetHandle": {
             "fieldName": "input",
-            "id": "Prompt Template-L5joh",
+            "id": "Prompt Template-AGsZX",
             "inputTypes": [
               "Message"
             ],
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-cYIy4{œdataTypeœ:œChatInputœ,œidœ:œChatInput-cYIy4œ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Prompt Template-L5joh{œfieldNameœ:œinputœ,œidœ:œPrompt Template-L5johœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__ChatInput-0VcxV{œdataTypeœ:œChatInputœ,œidœ:œChatInput-0VcxVœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Prompt Template-AGsZX{œfieldNameœ:œinputœ,œidœ:œPrompt Template-AGsZXœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "selected": false,
-        "source": "ChatInput-cYIy4",
-        "sourceHandle": "{œdataTypeœ:œChatInputœ,œidœ:œChatInput-cYIy4œ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}",
-        "target": "Prompt Template-L5joh",
-        "targetHandle": "{œfieldNameœ:œinputœ,œidœ:œPrompt Template-L5johœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+        "source": "ChatInput-0VcxV",
+        "sourceHandle": "{œdataTypeœ:œChatInputœ,œidœ:œChatInput-0VcxVœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "Prompt Template-AGsZX",
+        "targetHandle": "{œfieldNameœ:œinputœ,œidœ:œPrompt Template-AGsZXœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
       }
     ],
     "nodes": [
@@ -290,7 +300,7 @@
         "data": {
           "description": "Split text into chunks based on specified criteria.",
           "display_name": "Split Text",
-          "id": "SplitText-eNBcG",
+          "id": "SplitText-laVR2",
           "node": {
             "base_classes": [
               "Table"
@@ -551,106 +561,56 @@
             "tool_mode": false
           },
           "selected_output": "chunks",
+          "showNode": false,
           "type": "SplitText"
         },
-        "id": "SplitText-eNBcG",
+        "dragging": false,
+        "id": "SplitText-laVR2",
         "measured": {
-          "height": 415,
-          "width": 320
+          "height": 80,
+          "width": 192
         },
         "position": {
-          "x": 1174.3554307036834,
-          "y": 604.0125544573089
+          "x": 1358.77710108954,
+          "y": -370.3214743012438
         },
         "selected": false,
         "type": "genericNode"
       },
       {
         "data": {
-          "id": "note-Ss61Q",
+          "id": "note-V02QR",
           "node": {
             "description": "### Flow 1:\n### Untuk menyimpan data ke dalam database",
             "display_name": "",
             "documentation": "",
             "template": {
-              "backgroundColor": "#589ef9",
-              "customColor": "#589ef9"
-            }
-          },
-          "type": "note"
-        },
-        "height": 184,
-        "id": "note-Ss61Q",
-        "measured": {
-          "height": 184,
-          "width": 307
-        },
-        "position": {
-          "x": 739.6396059056761,
-          "y": 245.28673347050562
-        },
-        "selected": false,
-        "type": "noteNode",
-        "width": 307
-      },
-      {
-        "data": {
-          "id": "note-l0R0Z",
-          "node": {
-            "description": "###  Supabase di sini Untuk Database AI Knowladge\n",
-            "display_name": "",
-            "documentation": "",
-            "template": {
               "backgroundColor": "transparent"
             }
           },
           "type": "note"
         },
+        "dragging": false,
         "height": 140,
-        "id": "note-l0R0Z",
-        "measured": {
-          "height": 140,
-          "width": 345
-        },
-        "position": {
-          "x": 1169.495826964875,
-          "y": 1104.0720020965286
-        },
-        "selected": false,
-        "type": "noteNode",
-        "width": 345
-      },
-      {
-        "data": {
-          "id": "note-Yy78P",
-          "node": {
-            "description": "### Flow 2:\n### Untuk buddy agent system",
-            "display_name": "",
-            "documentation": "",
-            "template": {
-              "backgroundColor": "#368af7",
-              "customColor": "#368af7"
-            }
-          },
-          "type": "note"
-        },
-        "id": "note-Yy78P",
+        "id": "note-V02QR",
         "measured": {
           "height": 140,
           "width": 280
         },
         "position": {
-          "x": 787.0926382313133,
-          "y": 1209.616532700598
+          "x": 776.7212613123194,
+          "y": -439.8305090969512
         },
+        "resizing": false,
         "selected": false,
-        "type": "noteNode"
+        "type": "noteNode",
+        "width": 280
       },
       {
         "data": {
-          "id": "note-zDBqK",
+          "id": "note-aVEfW",
           "node": {
-            "description": "###  System Promt",
+            "description": "### Flow 2:\n### Untuk agent system",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -659,21 +619,25 @@
           },
           "type": "note"
         },
-        "id": "note-zDBqK",
+        "dragging": false,
+        "height": 140,
+        "id": "note-aVEfW",
         "measured": {
           "height": 140,
           "width": 280
         },
         "position": {
-          "x": 1960.277361887122,
-          "y": 1347.560667931565
+          "x": 790.0134085763161,
+          "y": -292.9990505356717
         },
+        "resizing": false,
         "selected": false,
-        "type": "noteNode"
+        "type": "noteNode",
+        "width": 280
       },
       {
         "data": {
-          "id": "Google Generative AI Embeddings-j7Rdb",
+          "id": "Google Generative AI Embeddings-lgaQ8",
           "node": {
             "base_classes": [
               "Embeddings"
@@ -806,24 +770,25 @@
             },
             "tool_mode": false
           },
-          "showNode": true,
+          "showNode": false,
           "type": "Google Generative AI Embeddings"
         },
-        "id": "Google Generative AI Embeddings-j7Rdb",
+        "dragging": false,
+        "id": "Google Generative AI Embeddings-lgaQ8",
         "measured": {
-          "height": 337,
-          "width": 320
+          "height": 52,
+          "width": 192
         },
         "position": {
-          "x": 1182.5672356985729,
-          "y": 197
+          "x": 1365.4012017261214,
+          "y": -251.8038861586359
         },
         "selected": false,
         "type": "genericNode"
       },
       {
         "data": {
-          "id": "ParserComponent-9z8HZ",
+          "id": "ParserComponent-aa0Fd",
           "node": {
             "base_classes": [
               "Message"
@@ -1039,24 +1004,25 @@
             },
             "tool_mode": false
           },
-          "showNode": true,
+          "showNode": false,
           "type": "ParserComponent"
         },
-        "id": "ParserComponent-9z8HZ",
+        "dragging": false,
+        "id": "ParserComponent-aa0Fd",
         "measured": {
-          "height": 249,
-          "width": 320
+          "height": 52,
+          "width": 192
         },
         "position": {
-          "x": 1537.7791242803646,
-          "y": 1288.811931994442
+          "x": 1657.5608659311201,
+          "y": 187.01859739337107
         },
         "selected": false,
         "type": "genericNode"
       },
       {
         "data": {
-          "id": "Prompt Template-L5joh",
+          "id": "Prompt Template-AGsZX",
           "node": {
             "add_tool_output": null,
             "base_classes": [
@@ -1266,17 +1232,18 @@
             },
             "tool_mode": false
           },
-          "showNode": true,
+          "showNode": false,
           "type": "Prompt Template"
         },
-        "id": "Prompt Template-L5joh",
+        "dragging": false,
+        "id": "Prompt Template-AGsZX",
         "measured": {
-          "height": 429,
-          "width": 320
+          "height": 80,
+          "width": 192
         },
         "position": {
-          "x": 1906.098620269393,
-          "y": 1414.2819456399698
+          "x": 1859.7623005800738,
+          "y": 373.0894408757487
         },
         "selected": false,
         "type": "genericNode"
@@ -1284,7 +1251,7 @@
       {
         "data": {
           "_connectionMode": false,
-          "id": "LanguageModelComponent-DKx8z",
+          "id": "LanguageModelComponent-uo5vP",
           "node": {
             "base_classes": [
               "LanguageModel",
@@ -1829,24 +1796,25 @@
             "tool_mode": false
           },
           "selected_output": "text_output",
-          "showNode": true,
+          "showNode": false,
           "type": "LanguageModelComponent"
         },
-        "id": "LanguageModelComponent-DKx8z",
+        "dragging": false,
+        "id": "LanguageModelComponent-uo5vP",
         "measured": {
-          "height": 371,
-          "width": 320
+          "height": 98,
+          "width": 192
         },
         "position": {
-          "x": 2276.385792300034,
-          "y": 1399.0924128941356
+          "x": 2133.296480277448,
+          "y": 238.4145894296537
         },
         "selected": false,
         "type": "genericNode"
       },
       {
         "data": {
-          "id": "ChatOutput-TDB3k",
+          "id": "ChatOutput-QYfwJ",
           "node": {
             "base_classes": [
               "Message"
@@ -2140,21 +2108,22 @@
           "showNode": false,
           "type": "ChatOutput"
         },
-        "id": "ChatOutput-TDB3k",
+        "dragging": false,
+        "id": "ChatOutput-QYfwJ",
         "measured": {
           "height": 52,
           "width": 192
         },
         "position": {
-          "x": 2652.0640879195553,
-          "y": 1637.6022853746967
+          "x": 2448.0637025613532,
+          "y": 353.67815878182927
         },
         "selected": false,
         "type": "genericNode"
       },
       {
         "data": {
-          "id": "ChatInput-cYIy4",
+          "id": "ChatInput-0VcxV",
           "node": {
             "base_classes": [
               "Message"
@@ -2441,14 +2410,15 @@
           "showNode": false,
           "type": "ChatInput"
         },
-        "id": "ChatInput-cYIy4",
+        "dragging": false,
+        "id": "ChatInput-0VcxV",
         "measured": {
           "height": 52,
           "width": 192
         },
         "position": {
-          "x": 885.9658017073665,
-          "y": 1870.4990657527119
+          "x": 958.895500291263,
+          "y": 337.87256596878296
         },
         "selected": false,
         "type": "genericNode"
@@ -2456,7 +2426,7 @@
       {
         "data": {
           "_connectionMode": false,
-          "id": "EmbeddingModel-j0VWn",
+          "id": "EmbeddingModel-iT4TW",
           "node": {
             "base_classes": [
               "Embeddings"
@@ -2995,24 +2965,25 @@
             },
             "tool_mode": false
           },
-          "showNode": true,
+          "showNode": false,
           "type": "EmbeddingModel"
         },
-        "id": "EmbeddingModel-j0VWn",
+        "dragging": false,
+        "id": "EmbeddingModel-iT4TW",
         "measured": {
-          "height": 207,
-          "width": 320
+          "height": 52,
+          "width": 192
         },
         "position": {
-          "x": 781.7231837183939,
-          "y": 1376.4380196914913
+          "x": 962.1786392952406,
+          "y": 218.66333424807482
         },
         "selected": false,
         "type": "genericNode"
       },
       {
         "data": {
-          "id": "File-SlqhK",
+          "id": "File-nzwjX",
           "node": {
             "base_classes": [
               "Message"
@@ -3055,7 +3026,7 @@
             "frozen": false,
             "icon": "file-text",
             "key": "File",
-            "last_updated": "2026-09-13T04:16:22.159Z",
+            "last_updated": "2026-09-15T15:46:54.223Z",
             "legacy": false,
             "lf_version": "1.12.0",
             "metadata": {
@@ -3126,10 +3097,10 @@
             "score": 0.3205001277290518,
             "template": {
               "_frontend_node_flow_id": {
-                "value": "d9a5f6f1-c334-46f0-8038-246e021bdded"
+                "value": "0c347f8d-7fc5-4907-861b-c565ef0eac33"
               },
               "_frontend_node_folder_id": {
-                "value": "c2a54165-66d7-4494-9bca-0f6bfcb3aa9d"
+                "value": "070ef7bc-93cc-4da2-9443-009c8883daed"
               },
               "_type": "Component",
               "advanced_mode": {
@@ -3795,24 +3766,25 @@
             "tool_mode": false
           },
           "selected_output": "dataframe",
-          "showNode": true,
+          "showNode": false,
           "type": "File"
         },
-        "id": "File-SlqhK",
+        "dragging": false,
+        "id": "File-nzwjX",
         "measured": {
-          "height": 411,
-          "width": 320
+          "height": 52,
+          "width": 192
         },
         "position": {
-          "x": 730.0000000000001,
-          "y": 457.37376739559386
+          "x": 1019.2101580341783,
+          "y": -296.2693555581599
         },
         "selected": false,
         "type": "genericNode"
       },
       {
         "data": {
-          "id": "ext:supabase:SupabaseVectorStoreComponent@official-cF14R",
+          "id": "ext:supabase:SupabaseVectorStoreComponent@official-r9pvc",
           "node": {
             "base_classes": [
               "JSON",
@@ -4097,7 +4069,7 @@
                 "trace_as_metadata": true,
                 "track_in_telemetry": false,
                 "type": "str",
-                "value": ""
+                "value": "https://gtmsfomynlvdzqmtwmtx.supabase.co"
               },
               "table_name": {
                 "_input_type": "StrInput",
@@ -4125,24 +4097,25 @@
             "tool_mode": false
           },
           "selected_output": "search_results",
-          "showNode": true,
+          "showNode": false,
           "type": "ext:supabase:SupabaseVectorStoreComponent@official"
         },
-        "id": "ext:supabase:SupabaseVectorStoreComponent@official-cF14R",
+        "dragging": false,
+        "id": "ext:supabase:SupabaseVectorStoreComponent@official-r9pvc",
         "measured": {
-          "height": 623,
-          "width": 320
+          "height": 98,
+          "width": 192
         },
         "position": {
-          "x": 1665.1861808520089,
-          "y": 207.6277652964792
+          "x": 1722.5915025732327,
+          "y": -341.2014954355547
         },
-        "selected": true,
+        "selected": false,
         "type": "genericNode"
       },
       {
         "data": {
-          "id": "ext:supabase:SupabaseVectorStoreComponent@official-ZdeUB",
+          "id": "ext:supabase:SupabaseVectorStoreComponent@official-THnP1",
           "node": {
             "base_classes": [
               "JSON",
@@ -4427,7 +4400,7 @@
                 "trace_as_metadata": true,
                 "track_in_telemetry": false,
                 "type": "str",
-                "value": ""
+                "value": "https://gtmsfomynlvdzqmtwmtx.supabase.co"
               },
               "table_name": {
                 "_input_type": "StrInput",
@@ -4455,34 +4428,38 @@
             "tool_mode": false
           },
           "selected_output": "search_results",
-          "showNode": true,
+          "showNode": false,
           "type": "ext:supabase:SupabaseVectorStoreComponent@official"
         },
-        "id": "ext:supabase:SupabaseVectorStoreComponent@official-ZdeUB",
+        "dragging": false,
+        "id": "ext:supabase:SupabaseVectorStoreComponent@official-THnP1",
         "measured": {
-          "height": 623,
-          "width": 320
+          "height": 98,
+          "width": 192
         },
         "position": {
-          "x": 1152.493152126191,
-          "y": 1199.9813052554232
+          "x": 1370.9815864931777,
+          "y": 133.02562690713978
         },
         "selected": false,
         "type": "genericNode"
       }
     ],
     "viewport": {
-      "x": -563.3824807352307,
-      "y": -99.6393336519584,
-      "zoom": 0.6258271016853372
+      "x": -658.2223759305293,
+      "y": 334.60543066501884,
+      "zoom": 0.787817749582198
     }
   },
-  "description": "Uncover Business Opportunities with NLP.",
+  "description": "Smart Cash AI with live data context",
   "endpoint_name": null,
-  "id": "d9a5f6f1-c334-46f0-8038-246e021bdded",
+  "id": "0c347f8d-7fc5-4907-861b-c565ef0eac33",
   "is_component": false,
   "last_tested_version": "1.12.0",
   "locked": false,
-  "name": "SmartCash Agent",
-  "tags": []
+  "name": "AI ASSISTANT",
+  "tags": [
+    "chatbots",
+    "content-generation"
+  ]
 }
