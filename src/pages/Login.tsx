@@ -102,9 +102,22 @@ export default function Login({ onLogin, onBack }: LoginProps) {
             </form>
           </div>
 
-          <div className="mt-5 rounded-xl border border-blue-100 bg-blue-50/70 p-4">
-            <div className="text-xs font-semibold text-blue-700 uppercase tracking-wide mb-1">Demo admin access</div>
-            <div className="text-xs text-blue-800">Use the database admin email `azka@student.ac.id` and the configured demo password.</div>
+          <div className="mt-5 rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-2.5">
+            <div className="text-xs font-semibold text-slate-600 uppercase tracking-wide">Akun Demo</div>
+            <div className="space-y-1.5 text-xs text-slate-600">
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-slate-400">Admin</span>
+                <span className="font-mono bg-white border border-slate-200 rounded px-2 py-0.5">azka@student.ac.id</span>
+              </div>
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-slate-400">Member</span>
+                <span className="font-mono bg-white border border-slate-200 rounded px-2 py-0.5">ahmad@student.ac.id</span>
+              </div>
+              <div className="flex items-center justify-between gap-3 pt-1 border-t border-slate-200 mt-1">
+                <span className="text-slate-400">Password member</span>
+                <span className="font-mono bg-white border border-slate-200 rounded px-2 py-0.5">demo1234</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

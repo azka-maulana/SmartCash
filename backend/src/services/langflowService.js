@@ -2,19 +2,20 @@
 const { config } = require("../config/env");
 
 /**
- * Calls the existing Langflow "smart cash" flow via the Run-Flow REST API.
+ * Calls the Langflow "smart cash" flow via the Run-Flow REST API.
  *
  * Endpoint: POST {LANGFLOW_BASE_URL}/api/v1/run/{LANGFLOW_FLOW_ID}?stream=false
  *
- * The API key is injected here, server-side only — never sent to the browser.
+ * The enrichedMessage already contains live app data prepended by the route
+ * handler — so Langflow receives a single self-contained input value.
  *
- * @param {string} userMessage
+ * @param {string} enrichedMessage  User question + live data context, pre-built by caller
  * @param {string|undefined} sessionId
  * @returns {Promise<{ message: string, sessionId?: string }>}
  */
-async function callLangflow(userMessage, sessionId) {
+async function callLangflow(enrichedMessage, sessionId) {
   const { baseUrl, flowId, apiKey, timeoutMs } = config.langflow;
-  const url = baseUrl + "/api/v1/run/" + flowId + "?stream=false";
+  const url = `${baseUrl}/api/v1/run/${flowId}?stream=false`;
 
   const controller = new AbortController();
   const timeoutHandle = setTimeout(() => controller.abort(), timeoutMs);
@@ -29,7 +30,7 @@ async function callLangflow(userMessage, sessionId) {
         "x-api-key": apiKey,
       },
       body: JSON.stringify({
-        input_value: userMessage,
+        input_value: enrichedMessage,
         input_type: "chat",
         output_type: "chat",
         ...(sessionId ? { session_id: sessionId } : {}),
@@ -59,26 +60,7 @@ async function callLangflow(userMessage, sessionId) {
 
 /**
  * Extracts the final assistant text from the Langflow response.
- *
- * Tries all known response shapes in priority order:
- *
- * Shape 1 (observed from smart cash flow):
- *   outputs[0].outputs[0].results.message.data.text
- *
- * Shape 2 (common v1 API):
- *   outputs[0].outputs[0].results.message.text
- *
- * Shape 3 (messages array):
- *   outputs[0].outputs[0].messages[0].message  |  .text
- *
- * Shape 4 (artifacts):
- *   outputs[0].outputs[0].artifacts.message
- *
- * Shape 5 (older outer shape):
- *   outputs[0].results.message.text
- *
- * Shape 6 (legacy top-level):
- *   result  |  output
+ * Tries all known response shapes in priority order.
  */
 function extractMessage(data) {
   const outputs = data && data.outputs;
@@ -90,33 +72,27 @@ function extractMessage(data) {
       const i = inner[0];
       const msgObj = i && i.results && i.results.message;
 
-      // Shape 1 — data.text (confirmed shape from smart cash flow)
       const t1 = msgObj && msgObj.data && msgObj.data.text;
       if (typeof t1 === "string" && t1.trim()) return t1.trim();
 
-      // Shape 2 — direct .text
       const t2 = msgObj && msgObj.text;
       if (typeof t2 === "string" && t2.trim()) return t2.trim();
 
-      // Shape 3 — messages array
       const msgs = i && i.messages;
       if (Array.isArray(msgs) && msgs.length > 0) {
         const t3 = msgs[0].message || msgs[0].text;
         if (typeof t3 === "string" && t3.trim()) return t3.trim();
       }
 
-      // Shape 4 — artifacts
       const t4 = i && i.artifacts && i.artifacts.message;
       if (typeof t4 === "string" && t4.trim()) return t4.trim();
     }
 
-    // Shape 5 — older outer shape
     const msgObj5 = first && first.results && first.results.message;
     const t5 = (msgObj5 && msgObj5.data && msgObj5.data.text) || (msgObj5 && msgObj5.text);
     if (typeof t5 === "string" && t5.trim()) return t5.trim();
   }
 
-  // Shape 6 — legacy top-level
   if (typeof data.result === "string" && data.result.trim()) return data.result.trim();
   if (typeof data.output === "string" && data.output.trim()) return data.output.trim();
 
@@ -124,10 +100,9 @@ function extractMessage(data) {
 }
 
 /**
- * Extracts the session_id so follow-up messages stay in the same Langflow conversation.
+ * Extracts session_id from the Langflow response.
  */
 function extractSessionId(data) {
-  // Top-level session_id (as observed in smart cash flow response)
   if (typeof data.session_id === "string" && data.session_id.trim()) return data.session_id.trim();
 
   const outputs = data && data.outputs;
@@ -142,8 +117,6 @@ function extractSessionId(data) {
   }
   return undefined;
 }
-
-// ── Custom error types ────────────────────────────────────────────────────────
 
 class LangflowTimeoutError extends Error {
   constructor(message) { super(message); this.name = "LangflowTimeoutError"; }

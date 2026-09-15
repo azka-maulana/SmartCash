@@ -1,5 +1,6 @@
 "use strict";
 const { supabase } = require("./supabaseService");
+const { hashPassword, DEMO_DEFAULT_PASSWORD } = require("./authService");
 
 /**
  * Safe numeric conversion for Supabase numeric/string values.
@@ -76,8 +77,11 @@ async function createMember(groupId, { name, email }) {
   if (existingError) throw new Error("Failed to check member email: " + existingError.message);
   if (existingUser) throw new Error("A member with this email already exists");
 
-  const userId = await getNextId("users", "U");
+  const userId   = await getNextId("users", "U");
   const memberId = await getNextId("group_members", "GM");
+
+  // Hash the default password so the new member can log in immediately
+  const defaultHash = await hashPassword(DEMO_DEFAULT_PASSWORD);
 
   const { data: user, error: userError } = await supabase
     .from("users")
@@ -85,7 +89,7 @@ async function createMember(groupId, { name, email }) {
       id: userId,
       name: name.trim(),
       email: normalizedEmail,
-      password_hash: "DEMO_HASH",
+      password_hash: defaultHash,
       status: "active",
     })
     .select("id, name, email, status, created_at")
@@ -111,6 +115,29 @@ async function createMember(groupId, { name, email }) {
     throw new Error("Failed to add group member: " + memberError.message);
   }
 
+  // Auto-create a contribution row for the current period so the new member
+  // immediately appears in the payment list and can accept a payment.
+  const currentPeriod = new Date().toISOString().slice(0, 7); // YYYY-MM
+  const expectedAmount = await getGroupExpectedAmount(groupId);
+  const contribId = await getNextId("contributions", "C");
+
+  const { error: contribError } = await supabase
+    .from("contributions")
+    .insert({
+      id: contribId,
+      group_id: groupId,
+      user_id: userId,
+      period: currentPeriod,
+      expected_amount: expectedAmount,
+      paid_amount: 0,
+      status: "unpaid",
+    });
+
+  if (contribError) {
+    // Non-fatal: member is created; contribution row will be created on first payment
+    console.warn("[createMember] Failed to auto-create contribution row:", contribError.message);
+  }
+
   return {
     id: membership.id,
     user_id: user.id,
@@ -119,6 +146,24 @@ async function createMember(groupId, { name, email }) {
     role: membership.role,
     joined_at: membership.joined_at,
   };
+}
+
+/**
+ * Returns the standard expected_amount for a group by looking at existing
+ * contribution rows. Falls back to 0 if none exist yet.
+ *
+ * @param {string} groupId
+ * @returns {Promise<number>}
+ */
+async function getGroupExpectedAmount(groupId) {
+  const { data, error } = await supabase
+    .from("contributions")
+    .select("expected_amount")
+    .eq("group_id", groupId)
+    .limit(1)
+    .maybeSingle();
+  if (error || !data) return 0;
+  return toNumber(data.expected_amount);
 }
 
 // ── Members ──────────────────────────────────────────────────────────────────
@@ -173,20 +218,34 @@ async function getMembers(groupId) {
 // ── Transactions ─────────────────────────────────────────────────────────────
 
 /**
- * getTransactions(groupId)
+ * getTransactions(groupId, options)
  *
- * Returns all non-voided transactions for the group, newest first.
+ * Returns non-voided transactions for the group, newest first.
+ * Filtering and limiting are applied at the database query level.
  *
  * @param {string} groupId
+ * @param {{ period?: string, limit?: number }} [options]  period = YYYY-MM; limit = max rows
  * @returns {Promise<Array>}
  */
-async function getTransactions(groupId) {
-  const { data, error } = await supabase
+async function getTransactions(groupId, options = {}) {
+  let query = supabase
     .from("transactions")
     .select("id, group_id, type, description, category, amount, transaction_date, status, created_by")
     .eq("group_id", groupId)
+    .neq("status", "voided")
     .order("transaction_date", { ascending: false });
 
+  if (options.period) {
+    const from = options.period + "-01";
+    const to   = options.period + "-31";
+    query = query.gte("transaction_date", from).lte("transaction_date", to);
+  }
+
+  if (options.limit && options.limit > 0) {
+    query = query.limit(options.limit);
+  }
+
+  const { data, error } = await query;
   if (error) throw new Error("Failed to fetch transactions: " + error.message);
   return (data ?? []).map((row) => ({
     ...row,
@@ -294,47 +353,109 @@ async function getContributions(groupId, period) {
  * @returns {Promise<object>}
  */
 async function recordPayment(groupId, userId, period, additionalAmount, recordedBy) {
-  // Fetch existing row first
-  const { data: existing, error: fetchError } = await supabase
-    .from("contributions")
-    .select("id, expected_amount, paid_amount")
-    .eq("group_id", groupId)
-    .eq("user_id", userId)
-    .eq("period", period)
-    .maybeSingle();
+  // Fetch existing contribution row and member name in parallel
+  const [
+    { data: existing, error: fetchError },
+    { data: userData, error: userError },
+  ] = await Promise.all([
+    supabase
+      .from("contributions")
+      .select("id, expected_amount, paid_amount")
+      .eq("group_id", groupId)
+      .eq("user_id", userId)
+      .eq("period", period)
+      .maybeSingle(),
+    supabase
+      .from("users")
+      .select("name")
+      .eq("id", userId)
+      .maybeSingle(),
+  ]);
 
   if (fetchError) throw new Error("Failed to fetch contribution: " + fetchError.message);
+  if (userError) throw new Error("Failed to fetch user: " + userError.message);
 
-  if (existing) {
-    const newPaid = toNumber(existing.paid_amount) + additionalAmount;
-    const expectedAmount = toNumber(existing.expected_amount);
-    let newStatus = "unpaid";
-    if (newPaid >= expectedAmount) newStatus = "paid";
-    else if (newPaid > 0) newStatus = "partial";
+  // If no contribution row exists yet (e.g. member added before auto-create was
+  // in place), create one on-the-fly using the group's standard expected amount.
+  if (!existing) {
+    const expectedAmount = await getGroupExpectedAmount(groupId);
+    if (expectedAmount <= 0) {
+      throw new Error("No contribution exists for this member and period; expected amount is not configured.");
+    }
+    const contribId = await getNextId("contributions", "C");
+    const { data: newContrib, error: insertError } = await supabase
+      .from("contributions")
+      .insert({
+        id: contribId,
+        group_id: groupId,
+        user_id: userId,
+        period,
+        expected_amount: expectedAmount,
+        paid_amount: 0,
+        status: "unpaid",
+      })
+      .select("id, expected_amount, paid_amount")
+      .single();
+    if (insertError) throw new Error("Failed to create contribution row: " + insertError.message);
+    // Re-assign existing so the rest of the function proceeds normally
+    Object.assign(existing === null ? {} : existing, newContrib);
+    // Use newContrib directly as existing
+    return recordPayment(groupId, userId, period, additionalAmount, recordedBy);
+  }
 
-    const { data, error } = await supabase
+  const newPaid = toNumber(existing.paid_amount) + additionalAmount;
+  const expectedAmount = toNumber(existing.expected_amount);
+  let newStatus = "unpaid";
+  if (newPaid >= expectedAmount) newStatus = "paid";
+  else if (newPaid > 0) newStatus = "partial";
+
+  const memberName = userData?.name ?? userId;
+  const today = new Date().toISOString();
+  const todayDate = today.slice(0, 10); // YYYY-MM-DD
+
+  // Generate a transaction ID for the income entry
+  const txId = await getNextTransactionId();
+
+  // Update contribution + insert income transaction in parallel
+  const [contribResult, txResult] = await Promise.all([
+    supabase
       .from("contributions")
       .update({
         paid_amount: newPaid,
         status: newStatus,
         recorded_by: recordedBy,
-        paid_at: new Date().toISOString(),
+        paid_at: today,
       })
       .eq("id", existing.id)
       .select()
-      .single();
+      .single(),
+    supabase
+      .from("transactions")
+      .insert({
+        id: txId,
+        group_id: groupId,
+        type: "income",
+        description: `Iuran ${memberName} – ${period}`,
+        category: "Contribution",
+        amount: additionalAmount,
+        transaction_date: todayDate,
+        status: "posted",
+        created_by: recordedBy,
+      })
+      .select()
+      .single(),
+  ]);
 
-    if (error) throw new Error("Failed to update contribution: " + error.message);
-    return {
-      ...data,
-      expected_amount: toNumber(data.expected_amount),
-      paid_amount: toNumber(data.paid_amount),
-      paidAt: data.paid_at ? data.paid_at.slice(0, 10) : null,
-    };
-  } else {
-    // No existing row — insert with the provided payment
-    throw new Error("No contribution exists for this member and period; expected amount is not configured.");
-  }
+  if (contribResult.error) throw new Error("Failed to update contribution: " + contribResult.error.message);
+  if (txResult.error) throw new Error("Failed to record income transaction: " + txResult.error.message);
+
+  const data = contribResult.data;
+  return {
+    ...data,
+    expected_amount: toNumber(data.expected_amount),
+    paid_amount: toNumber(data.paid_amount),
+    paidAt: data.paid_at ? data.paid_at.slice(0, 10) : null,
+  };
 }
 
 // ── Summary / Dashboard ───────────────────────────────────────────────────────

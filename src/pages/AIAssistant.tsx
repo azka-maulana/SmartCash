@@ -9,11 +9,11 @@ interface Message {
 }
 
 const SUGGESTED_PROMPTS = [
-  "What is our current balance?",
-  "How much did we spend this month?",
-  "What was our biggest expense?",
-  "How many members have not paid?",
-  "How is our cash condition this month?",
+  "Berapa saldo terakhir?",
+  "Berapa pengeluaran bulan ini?",
+  "Apa pengeluaran terbesar?",
+  "Berapa anggota yang belum membayar?",
+  "Bagaimana kondisi keuangan bulan ini?"
 ];
 
 function renderSafeContent(text: string) {
@@ -167,13 +167,13 @@ export default function AIAssistant({ groupName }: { groupName: string }) {
       {messages.length <= 1 && (
         <div className="px-5 pb-3 shrink-0">
           <div className="max-w-2xl mx-auto">
-            <div className="text-xs text-slate-400 mb-2 font-medium">Suggested questions</div>
-            <div className="flex flex-wrap gap-2">
+            <div className="text-[10px] text-slate-500 mb-2 font-medium">Suggested questions</div>
+            <div className="flex flex-wrap gap-1.5">
               {SUGGESTED_PROMPTS.map((prompt) => (
                 <button
                   key={prompt}
                   onClick={() => sendMessage(prompt)}
-                  className="text-xs bg-white border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 text-slate-600 hover:text-blue-700 rounded-full px-3 py-1.5 transition-all font-medium"
+                  className="text-[10px] bg-transparent border border-slate-700/80 hover:border-slate-500 hover:bg-slate-800/60 text-slate-400 hover:text-slate-200 rounded-full px-2.5 py-1.5 transition-all duration-150 font-medium whitespace-nowrap"
                 >
                   {prompt}
                 </button>

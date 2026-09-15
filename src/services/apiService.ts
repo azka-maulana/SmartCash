@@ -196,3 +196,21 @@ export async function postPayment(body: {
     body: JSON.stringify(body),
   });
 }
+
+/** POST /api/auth/change-password */
+export async function postChangePassword(
+  userId: string,
+  currentPassword: string,
+  newPassword: string
+): Promise<{ message: string }> {
+  const response = await fetch(`${API_BASE}/api/auth/change-password`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ userId, currentPassword, newPassword }),
+  });
+  const body = await response.json();
+  if (!response.ok) {
+    throw new Error(body?.error ?? `Error (HTTP ${response.status})`);
+  }
+  return body;
+}
