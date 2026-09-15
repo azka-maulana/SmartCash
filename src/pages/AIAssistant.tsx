@@ -9,11 +9,10 @@ interface Message {
 }
 
 const SUGGESTED_PROMPTS = [
-  "Berapa saldo terakhir?",
-  "Berapa pengeluaran bulan ini?",
-  "Apa pengeluaran terbesar?",
-  "Berapa anggota yang belum membayar?",
-  "Bagaimana kondisi keuangan bulan ini?"
+  "What is the latest balance?",
+  "How much are this month's expenses?",
+  "How many members haven't paid yet?",
+  "What is the financial status this month??"
 ];
 
 function renderSafeContent(text: string) {
