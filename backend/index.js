@@ -1,8 +1,8 @@
-// backend/index.js
-"use strict";
+// // backend/index.js
+// "use strict";
 
-const { createApp } = require("./src/app");
+// const { createApp } = require("./src/app");
 
-const app = createApp();
+// const app = createApp();
 
-module.exports = app;
+// module.exports = app;
