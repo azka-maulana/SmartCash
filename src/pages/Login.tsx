@@ -105,10 +105,13 @@ export default function Login({ onLogin, onBack }: LoginProps) {
           <div className="mt-5 rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-2.5">
             <div className="text-xs font-semibold text-slate-600 uppercase tracking-wide">Akun Demo</div>
             <div className="space-y-1.5 text-xs text-slate-600">
-              <div className="flex items-center justify-between gap-3">
+              {/* <div className="flex items-center justify-between gap-3">
                 <span className="text-slate-400">Admin</span>
                 <span className="font-mono bg-white border border-slate-200 rounded px-2 py-0.5">azka@student.ac.id</span>
-              </div>
+                <span className="text-slate-400">Password Admin</span>
+                <span className="font-mono bg-white border border-slate-200 rounded px-2 py-0.5">DEMO_HASH</span>
+
+              </div> */}
               <div className="flex items-center justify-between gap-3">
                 <span className="text-slate-400">Member</span>
                 <span className="font-mono bg-white border border-slate-200 rounded px-2 py-0.5">ahmad@student.ac.id</span>
