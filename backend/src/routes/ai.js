@@ -105,8 +105,12 @@ async function buildLiveDataContext(groupId) {
       memberBlock.join("\n"),
     ].join("\n\n");
   } catch (err) {
-    console.warn("[AI Chat] live data fetch failed:", err.message);
-    return "## DATA APLIKASI LIVE\nData aplikasi sementara tidak tersedia.";
+    console.warn("[AI Chat] upstream error", {
+      requestId,
+      upstreamStatus: err.upstreamStatus ?? null,
+      message: err?.message ?? null,
+      name: err?.name ?? null,
+    });
   }
 }
 

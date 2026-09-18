@@ -63,15 +63,45 @@ if (!response.ok) {
   );
 }
 
-  let data;
-  try { data = await response.json(); }
-  catch { throw new LangflowUpstreamError("Langflow returned a non-JSON response"); }
+const contentType = response.headers.get("content-type") || "";
+const rawBody = await response.text();
 
-  const message = extractMessage(data);
-  if (!message) throw new LangflowUpstreamError("Langflow response did not contain a readable message");
+console.log("[Langflow] response", {
+  status: response.status,
+  contentType,
+  bodyLength: rawBody.length,
+});
 
-  const returnedSessionId = extractSessionId(data);
-  return { message, sessionId: returnedSessionId ?? sessionId };
+let data;
+
+try {
+  data = JSON.parse(rawBody);
+} catch (err) {
+  console.error("[Langflow] invalid JSON response", {
+    status: response.status,
+    contentType,
+    bodyPreview: rawBody.slice(0, 500),
+  });
+
+  throw new LangflowUpstreamError(
+    "Langflow returned a non-JSON response",
+    response.status
+  );
+}
+
+const message = extractMessage(data);
+
+if (!message) {
+  console.error("[Langflow] unreadable response", {
+    status: response.status,
+    keys: Object.keys(data || {}),
+    bodyPreview: JSON.stringify(data).slice(0, 1000),
+  });
+
+  throw new LangflowUpstreamError(
+    "Langflow response did not contain a readable message",
+    response.status
+  );
 }
 
 /**
