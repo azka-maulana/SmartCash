@@ -21,31 +21,47 @@ async function callLangflow(enrichedMessage, sessionId) {
   const timeoutHandle = setTimeout(() => controller.abort(), timeoutMs);
 
   let response;
-  try {
-    response = await fetch(url, {
-      method: "POST",
-      signal: controller.signal,
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": apiKey,
-      },
-      body: JSON.stringify({
-        input_value: enrichedMessage,
-        input_type: "chat",
-        output_type: "chat",
-        ...(sessionId ? { session_id: sessionId } : {}),
-      }),
-    });
-  } catch (err) {
-    if (err.name === "AbortError") throw new LangflowTimeoutError("Langflow request timed out");
-    throw new LangflowUpstreamError("Could not connect to the AI service");
-  } finally {
-    clearTimeout(timeoutHandle);
+
+try {
+  response = await fetch(url, {
+    method: "POST",
+    signal: controller.signal,
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": apiKey,
+    },
+    body: JSON.stringify({
+      input_value: enrichedMessage,
+      input_type: "chat",
+      output_type: "chat",
+      ...(sessionId ? { session_id: sessionId } : {}),
+    }),
+  });
+} catch (err) {
+  if (err?.name === "AbortError") {
+    throw new LangflowTimeoutError("Langflow request timed out");
   }
 
-  if (!response.ok) {
-    throw new LangflowUpstreamError("Langflow returned HTTP " + response.status, response.status);
-  }
+  console.error("[Langflow] fetch failed", {
+    name: err?.name,
+    message: err?.message,
+    cause: err?.cause?.message ?? err?.cause,
+    code: err?.cause?.code,
+  });
+
+  throw new LangflowUpstreamError(
+    "Could not connect to the AI service"
+  );
+} finally {
+  clearTimeout(timeoutHandle);
+}
+
+if (!response.ok) {
+  throw new LangflowUpstreamError(
+    "Langflow returned HTTP " + response.status,
+    response.status
+  );
+}
 
   let data;
   try { data = await response.json(); }
