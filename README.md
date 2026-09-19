@@ -64,9 +64,9 @@ Akun/konfigurasi Supabase untuk database aplikasi dan knowledge
 
 Flow Langflow yang digunakan project
 
-# Menjalankan Project
+## Menjalankan Project
 
-1. Clone / buka project
+# 1. Clone / buka project
 
 Masuk ke folder project:
 
@@ -76,14 +76,14 @@ cd SmartCash
 
 npm install
 
-3. Install dependency backend
+# 3. Install dependency backend
 
 Buka terminal baru:
 
 cd backend
 npm install
 
-4. Konfigurasi environment backend
+# 4. Konfigurasi environment backend
 
 Buat file:
 
@@ -108,7 +108,7 @@ DEMO_USER_ID=U002
 
 Jangan memasukkan file .env atau secret ke GitHub.
 
-5. Jalankan backend
+# 5. Jalankan backend
 
 Dari folder backend:
 
@@ -118,7 +118,7 @@ Backend berjalan pada:
 
 http://localhost:3001
 
-6. jalankan langflow 
+# 6. jalankan langflow 
 
 Setelah Langflow terbuka:
 
@@ -130,7 +130,7 @@ Pastikan Prompt Template dan Language Model sudah terhubung.
 
 Pastikan konfigurasi credential dan environment yang diperlukan sudah tersedia.
 
-7. Jalankan frontend
+# 7. Jalankan frontend
 
 Buka terminal baru dari folder utama project:
 
@@ -146,12 +146,12 @@ Menjalankan dalam Pengembangan
 
 Dua proses perlu berjalan bersamaan:
 
-Terminal 1
+**Terminal 1**
 Smart Cash/backend
 → npm run dev
 → http://localhost:3001
 
-Terminal 2
+**Terminal 2**
 Smart Cash/frontend
 → npm run dev
 → http://localhost:5173
@@ -160,7 +160,7 @@ Setelah ketiganya aktif, buka alamat frontend pada browser dan login menggunakan
 
 Penggunaan Smart Cash AI
 
-Setelah aplikasi berjalan, pengguna dapat mencoba pertanyaan seperti:
+**Setelah aplikasi berjalan, pengguna dapat mencoba pertanyaan seperti:**
 
 Berapa saldo kas saat ini?
 
@@ -172,19 +172,19 @@ Apa transaksi terbaru?
 
 Apa itu contribution?
 
-Pertanyaan tentang data yang berubah mengikuti data aplikasi yang tersedia, sedangkan pertanyaan tentang konsep dan aturan Smart Cash menggunakan knowledge yang tersimpan di vector store.
+**Pertanyaan tentang data yang berubah mengikuti data aplikasi yang tersedia, sedangkan pertanyaan tentang konsep dan aturan Smart Cash menggunakan knowledge yang tersimpan di vector store.**
 
-IBM Bob
+# IBM Bob
 
 IBM Bob digunakan selama proses pengembangan untuk membantu membangun, memperbaiki, melakukan debugging, dan menguji frontend, backend, database, serta integrasi AI dengan Langflow.
 
 Bob merupakan bagian dari proses pengembangan, bukan komponen runtime aplikasi.
 
-Status
+# Status
 
 Development / Demo
 
-Catatan Keamanan
+# Catatan Keamanan
 
 Simpan seluruh API key, secret key, dan credential hanya di backend.
 
@@ -192,6 +192,6 @@ Jangan menaruh secret di frontend atau repository publik.
 
 Gunakan konfigurasi environment yang sesuai sebelum menjalankan backend.
 
-License
+# License
 
 Belum ada lisensi publik yang ditetapkan untuk project ini.
