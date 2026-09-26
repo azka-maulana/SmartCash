@@ -8,6 +8,7 @@ dist/
 .env
 .env.*
 !.env.example
+.env.local
 
 # Editor / OS
 .vscode/
@@ -21,6 +22,3 @@ yarn-debug.log*
 pnpm-debug.log*
 
 
-# agen
-complete-project-naming-refactor.md
-.env.local
