@@ -4,6 +4,9 @@ Pengelolaan Uang Kas yang Transparan dengan Bantuan AI
 
 Smart Cash adalah aplikasi web untuk membantu kelompok mengelola uang kas, transaksi, iuran, dan anggota secara lebih rapi dan transparan. Aplikasi memiliki dua role utama: Admin dan User, serta Smart Cash AI Assistant untuk membantu pengguna mendapatkan informasi dari knowledge dan data aplikasi yang tersedia.
 
+**WEB**
+https://smart-cash-theta.vercel.app/
+
 # Fitur Utama
 
 Login & Hak Akses — akses dibedakan berdasarkan role Admin dan User.
