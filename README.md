@@ -180,15 +180,15 @@ Penggunaan Smart Cash AI
 
 **Setelah aplikasi berjalan, pengguna dapat mencoba pertanyaan seperti:**
 
-Berapa saldo kas saat ini?
+`Berapa saldo kas saat ini?`
 
-Siapa yang belum membayar iuran?
+`Siapa yang belum membayar iuran?`
 
-Berapa pengeluaran bulan ini?
+`Berapa pengeluaran bulan ini?`
 
-Apa transaksi terbaru?
+`Apa transaksi terbaru?`
 
-Apa itu contribution?
+`Apa itu contribution?`
 
 **Pertanyaan tentang data yang berubah mengikuti data aplikasi yang tersedia, sedangkan pertanyaan tentang konsep dan aturan Smart Cash menggunakan knowledge yang tersimpan di vector store.**
 
