@@ -74,19 +74,19 @@ Flow Langflow yang digunakan project
 
 Masuk ke folder project:
 
-'cd SmartCash'
+`cd SmartCash`
 
-2. Install dependency frontend
+# 2. Install dependency frontend
 
-'npm install'
+`npm install`
 
 # 3. Install dependency backend
 
 Buka terminal baru:
 
-'cd backend'
+`cd backend`
 
-'npm install'
+`npm install`
 
 # 4. Konfigurasi environment backend
 
@@ -96,7 +96,7 @@ Buat file:
 
 Isi menggunakan konfigurasi yang sesuai dengan environment Anda:
 
-'''
+```
 PORT=3001
 FRONTEND_ORIGIN=http://localhost:5173
 
@@ -111,7 +111,7 @@ LANGFLOW_TIMEOUT_MS=30000
 
 DEMO_GROUP_ID=G001
 DEMO_USER_ID=U002
-'''
+```
 
 Jangan memasukkan file .env atau secret ke GitHub.
 
@@ -119,13 +119,24 @@ Jangan memasukkan file .env atau secret ke GitHub.
 
 Dari folder backend:
 
-'npm run dev'
+`npm run dev`
+atau
+`node src/server.js`
 
 Backend berjalan pada:
 
-'http://localhost:3001'
+http://localhost:3001
 
 # 6. jalankan langflow 
+
+jika mengguakan Langflow web pastikan uv sudah terinstall, lakukan:
+`uv --version`
+
+jika uv belum terinstall:
+`pip install uv`
+
+setelah itu install langflow:
+`uv pip install langflow`
 
 Setelah Langflow terbuka:
 
@@ -141,7 +152,7 @@ Pastikan konfigurasi credential dan environment yang diperlukan sudah tersedia.
 
 Buka terminal baru dari folder utama project:
 
-npm run dev
+`npm run dev`
 
 Frontend berjalan pada alamat yang ditampilkan oleh Vite, biasanya:
 
