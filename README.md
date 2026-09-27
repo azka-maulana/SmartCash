@@ -67,30 +67,31 @@ Akun/konfigurasi Supabase untuk database aplikasi dan knowledge
 
 Flow Langflow yang digunakan project
 
+
 # **Menjalankan Project**
 
 # 1. Clone / buka project
 
 Masuk ke folder project:
 
-cd SmartCash
+*cd SmartCash*
 
 2. Install dependency frontend
 
-npm install
+*npm install*
 
 # 3. Install dependency backend
 
 Buka terminal baru:
 
-cd backend
-npm install
+*cd backend*
+*npm install*
 
 # 4. Konfigurasi environment backend
 
 Buat file:
 
-backend/.env
+*backend/.env*
 
 Isi menggunakan konfigurasi yang sesuai dengan environment Anda:
 
@@ -115,7 +116,7 @@ Jangan memasukkan file .env atau secret ke GitHub.
 
 Dari folder backend:
 
-npm run dev
+*npm run dev*
 
 Backend berjalan pada:
 
