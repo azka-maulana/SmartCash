@@ -67,7 +67,7 @@ Akun/konfigurasi Supabase untuk database aplikasi dan knowledge
 
 Flow Langflow yang digunakan project
 
-## Menjalankan Project
+# **Menjalankan Project**
 
 # 1. Clone / buka project
 
