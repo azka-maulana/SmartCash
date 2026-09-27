@@ -74,18 +74,19 @@ Flow Langflow yang digunakan project
 
 Masuk ke folder project:
 
-*cd SmartCash*
+'cd SmartCash'
 
 2. Install dependency frontend
 
-*npm install*
+'npm install'
 
 # 3. Install dependency backend
 
 Buka terminal baru:
 
-*cd backend*
-*npm install*
+'cd backend'
+
+'npm install'
 
 # 4. Konfigurasi environment backend
 
@@ -95,6 +96,7 @@ Buat file:
 
 Isi menggunakan konfigurasi yang sesuai dengan environment Anda:
 
+'''
 PORT=3001
 FRONTEND_ORIGIN=http://localhost:5173
 
@@ -109,6 +111,7 @@ LANGFLOW_TIMEOUT_MS=30000
 
 DEMO_GROUP_ID=G001
 DEMO_USER_ID=U002
+'''
 
 Jangan memasukkan file .env atau secret ke GitHub.
 
@@ -116,11 +119,11 @@ Jangan memasukkan file .env atau secret ke GitHub.
 
 Dari folder backend:
 
-*npm run dev*
+'npm run dev'
 
 Backend berjalan pada:
 
-http://localhost:3001
+'http://localhost:3001'
 
 # 6. jalankan langflow 
 
